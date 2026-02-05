@@ -1,37 +1,14 @@
 "use client"
 
-import { NavigationMenuLink } from "@/components/ui/navigation-menu"
-
-import { NavigationMenuContent } from "@/components/ui/navigation-menu"
-
-import { NavigationMenuTrigger } from "@/components/ui/navigation-menu"
-
-import { NavigationMenuItem } from "@/components/ui/navigation-menu"
-
-import { NavigationMenuList } from "@/components/ui/navigation-menu"
-
-import { NavigationMenu } from "@/components/ui/navigation-menu"
-
-import { useEffect, useState } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { motion } from "framer-motion"
 import { ArrowRight, Users, Target, Calendar, BarChart3, CheckCircle } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { SiteNavigation } from "@/components/site-navigation"
+import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 
 export default function GestionProjetPage() {
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
 
   const services = [
     {
@@ -67,137 +44,7 @@ export default function GestionProjetPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <header
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled ? "bg-background/80 backdrop-blur-md" : "bg-transparent"
-        }`}
-      >
-        <div className="container mx-auto px-4">
-  <div className="flex items-center justify-between h-20">
-    <Link href="/" className="flex items-center">
-      <Image
-        src="/images/logo-20no-20background.png"
-        alt="Madison Logo"
-        width={120}
-        height={40}
-        className="h-10 w-auto"
-      />
-    </Link>
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-foreground text-background hover:bg-foreground/90 hover:text-background data-[state=open]:bg-foreground/90 data-[state=open]:text-background">
-                    Conseil
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="p-4 w-[300px]">
-                      <NavigationMenuLink asChild>
-                        <a href="/modes/conseil" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Conseil</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Concevoir vos solutions sur mesure de l'idée au projet
-                          </p>
-                        </a>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-foreground text-background hover:bg-foreground/90 hover:text-background data-[state=open]:bg-foreground/90 data-[state=open]:text-background">
-                    Regie
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="p-4 w-[300px]">
-                      <NavigationMenuLink asChild>
-                        <a href="/modes/regie" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Regie</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Renforcez vos équipes avec nos experts en immersion
-                          </p>
-                        </a>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger>Business Units</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid gap-3 p-6 w-[400px]">
-                      <NavigationMenuLink asChild>
-                        <a href="/business-units/banque-finance" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Banque Finance</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Solutions pour le secteur bancaire et financier
-                          </p>
-                        </a>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild>
-                        <a href="/business-units/ingenierie" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Ingenierie</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Expertise technique et solutions d'ingenierie
-                          </p>
-                        </a>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger>Nos Expertises</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid gap-3 p-6 w-[500px] lg:grid-cols-2">
-                      <NavigationMenuLink asChild>
-                        <a href="/expertises/software-engineering" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Software Engineering</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Developpement logiciel sur mesure
-                          </p>
-                        </a>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild>
-                        <a href="/expertises/cloud" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Cloud</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Infrastructure cloud scalable et sécurisée
-                          </p>
-                        </a>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild>
-                        <a href="/expertises/infrastructure-devops" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Infrastructure & DevOps</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Automatisation et gestion d'infrastructure
-                          </p>
-                        </a>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild>
-                        <a href="/expertises/gestion-projet" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Gestion de projet</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Pilotage et coordination de projets IT
-                          </p>
-                        </a>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild>
-                        <a href="/expertises/sap" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Expertise SAP</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Integration et conseil SAP
-                          </p>
-                        </a>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-            <Link href="/#contact">
-              <Button className="bg-foreground text-background hover:bg-foreground/90">Contact</Button>
-            </Link>
-          </div>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center pt-20">
