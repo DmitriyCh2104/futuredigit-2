@@ -1,25 +1,14 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { motion } from "framer-motion"
-import { ArrowRight, MapPin, Phone, Mail, Briefcase, Users, Target, CheckCircle, Lightbulb, Layers, FileText, Cog, BarChart3 } from "lucide-react"
+import { ArrowRight, Briefcase, Users, Target, CheckCircle, Lightbulb, Layers, FileText, Cog, BarChart3 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { SiteNavigation } from "@/components/site-navigation"
+import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 
 export default function ConseilPage() {
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
 
   const services = [
     {
@@ -97,28 +86,7 @@ export default function ConseilPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <header
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled ? "bg-background/80 backdrop-blur-md" : "bg-transparent"
-        }`}
-      >
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
-            <Link href="/" className="flex items-center">
-              <Image
-                src="/images/logo-20no-20background.png"
-                alt="Madison Logo"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
-              />
-            </Link>
-            <SiteNavigation />
-            <Button>Contact Us</Button>
-          </div>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center pt-20">
