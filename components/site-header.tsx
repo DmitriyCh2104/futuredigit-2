@@ -21,7 +21,7 @@ const mobileNavItems = [
   {
     title: "Modes d'intervention",
     items: [
-      { label: "Conseil", href: "/modes/conseil", desc: "Projets au forfait" },
+      { label: "Conseil", href: "/modes/conseil", desc: "Solutions sur mesure" },
       { label: "Regie", href: "/modes/regie", desc: "Extended Teams" },
     ],
   },

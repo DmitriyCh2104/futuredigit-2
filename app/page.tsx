@@ -28,20 +28,16 @@ import "./styles/animations.css"
 const modesIntervention = [
   {
     title: "Conseil",
-    subtitle: "Projets au Forfait",
     description:
       "Concevoir vos solutions sur mesure de l'idée au projet. Constituez une équipe pluridisciplinaire pour réaliser un projet complet avec des itérations courtes et un engagement sur les résultats.",
     image: "/images/conseil-hero.jpg",
-    tags: ["Forfait", "Équipe dédiée", "Solutions sur mesure"],
     link: "/modes/conseil",
   },
   {
     title: "Regie",
-    subtitle: "Extended Teams",
     description:
       "Renforcez vos équipes avec l'expertise et le leadership de nos talents en immersion au sein de votre organisation pour vous accompagner dans votre développement.",
     image: "/images/regie-hero.jpg",
-    tags: ["Expertise", "Flexibilité", "Renfort d'équipes"],
     link: "/modes/regie",
   },
 ]
@@ -403,67 +399,53 @@ export default function Home() {
       <SiteHeader />
 
       {/* Hero Section */}
-      <section className="min-h-screen relative overflow-hidden bg-gradient-to-br from-purple-900 via-blue-900 to-black">
-        <motion.div style={{ opacity, scale }} className="container mx-auto px-4 pt-32 relative z-10">
+      <section className="min-h-screen relative overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black flex items-center pb-0">
+        <motion.div style={{ opacity, scale }} className="container mx-auto px-4 pt-32 pb-0 relative z-10 w-full">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
+              className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
             >
-              Future Digit
+              <span className="bg-gradient-to-r from-white via-orange-100 to-orange-500 bg-clip-text text-transparent">
+                Future Digit
+              </span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-xl text-gray-300 mb-8"
+              className="text-xl md:text-2xl text-white/90 font-light tracking-wide mb-12"
             >
-              Conseil & Régie IT · Votre partenaire pour la transformation digitale et l'ingénierie
+              Conseil & Régie IT · Votre partenaire pour la transformation digitale
             </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              <Link href="/#expertises">
-                <Button size="lg" className="bg-white text-black hover:bg-gray-100 w-full sm:w-auto">
-                  Découvrez Futuredigit
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-              <Link href="/#contact">
-                <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10 bg-transparent w-full sm:w-auto">
-                  Demander un devis
-                </Button>
-              </Link>
-            </motion.div>
           </div>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="relative max-w-5xl mx-auto -mb-16"
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative max-w-6xl mx-auto"
           >
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="rounded-lg shadow-2xl w-full pointer-events-none select-none"
-              style={{ aspectRatio: '2/1' }}
-            >
-              <source src="/videos/PRO-.mp4" type="video/mp4" />
-              <source src="/videos/PRO-.mp4" type="video/webm" />
-            </video>
+            <div className="relative overflow-hidden rounded-t-2xl shadow-2xl">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full pointer-events-none select-none block"
+                style={{ aspectRatio: '2/1' }}
+              >
+                <source src="/videos/PRO-.mp4" type="video/mp4" />
+                <source src="/videos/PRO-.mp4" type="video/webm" />
+              </video>
+            </div>
           </motion.div>
         </motion.div>
       </section>
 
       {/* Trusted By Section */}
-      <section className="pt-16 pb-16 bg-gradient-to-b from-background via-background/50 to-[#020817]/50 relative overflow-hidden">
+      <section className="pt-16 pb-16 bg-black relative overflow-hidden">
         <div className="container mx-auto">
           <h2 className="text-center text-lg font-medium text-muted-foreground mb-12 px-4">
             Ils nous font confiance

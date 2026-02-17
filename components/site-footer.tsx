@@ -6,8 +6,8 @@ const footerLinks = {
   modes: {
     title: "Modes d'intervention",
     items: [
-      { label: "Conseil - Projets au Forfait", href: "/modes/conseil" },
-      { label: "Regie - Extended Teams", href: "/modes/regie" },
+      { label: "Conseil", href: "/modes/conseil" },
+      { label: "Regie", href: "/modes/regie" },
     ],
   },
   units: {

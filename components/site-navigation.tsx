@@ -52,12 +52,12 @@ export function SiteNavigation() {
             <div className="p-2 w-[320px]">
               <NavItem
                 href="/modes/conseil"
-                title="Conseil - Projets au Forfait"
-                description="Concevoir vos solutions sur mesure de l'idee au projet"
+                title="Conseil"
+                description="Solutions sur mesure de l'idee au projet"
               />
               <NavItem
                 href="/modes/regie"
-                title="Regie - Extended Teams"
+                title="Regie"
                 description="Renforcez vos equipes avec nos experts en immersion"
               />
             </div>

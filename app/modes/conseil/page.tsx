@@ -256,7 +256,7 @@ export default function ConseilPage() {
               className="order-2 lg:order-1"
             >
               <div className="p-8 rounded-2xl bg-[#0a101f]/60 border border-gray-800/50">
-                <h3 className="text-2xl font-bold mb-6">Prestations au Forfait</h3>
+                <h3 className="text-2xl font-bold mb-6">Notre Engagement</h3>
                 <p className="text-muted-foreground mb-6">
                   Avec notre mode forfait, vous bénéficiez d'un engagement ferme sur les livrables, 
                   les délais et le budget. Nous partageons les risques et nous engageons sur les résultats.
