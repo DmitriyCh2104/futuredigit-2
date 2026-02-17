@@ -22,7 +22,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { SiteNavigation } from "@/components/site-navigation"
+import { SiteHeader } from "@/components/site-header"
 import "./styles/animations.css"
 
 const modesIntervention = [
@@ -400,29 +400,7 @@ export default function Home() {
   return (
     <div ref={containerRef}>
       {/* Navigation */}
-      <header
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled ? "bg-background/80 backdrop-blur-md" : "bg-transparent"
-        }`}
-      >
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
-            <Link href="/" className="flex items-center">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo%20no%20background-mhVH8nYdjmphhp9EDB2z8bui7jD6ut.png"
-                alt="Future Digit Logo"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
-              />
-            </Link>
-            <SiteNavigation />
-            <Link href="/#contact">
-              <Button>Demander un devis</Button>
-            </Link>
-          </div>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* Hero Section */}
       <section className="min-h-screen relative overflow-hidden bg-gradient-to-br from-purple-900 via-blue-900 to-black">
