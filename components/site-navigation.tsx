@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { ChevronRight } from "lucide-react"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -10,128 +11,110 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 
+function NavItem({
+  href,
+  title,
+  description,
+}: {
+  href: string
+  title: string
+  description: string
+}) {
+  return (
+    <NavigationMenuLink asChild>
+      <a
+        href={href}
+        className="group flex items-start gap-3 rounded-lg p-3 leading-none no-underline outline-none transition-colors hover:bg-accent"
+      >
+        <div className="flex-1 space-y-1">
+          <div className="text-sm font-medium leading-none text-foreground group-hover:text-accent-foreground">
+            {title}
+          </div>
+          <p className="text-xs leading-snug text-muted-foreground">
+            {description}
+          </p>
+        </div>
+        <ChevronRight className="h-4 w-4 mt-0.5 text-muted-foreground opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
+      </a>
+    </NavigationMenuLink>
+  )
+}
+
 export function SiteNavigation() {
   return (
     <NavigationMenu>
-      <NavigationMenuList>
+      <NavigationMenuList className="gap-1">
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-background text-foreground hover:bg-accent hover:text-accent-foreground">Conseil</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-transparent text-foreground/80 hover:bg-accent/50 hover:text-foreground data-[state=open]:bg-accent/50 h-9 px-3 text-sm font-medium">
+            Conseil
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="p-4 w-[300px]">
-              <NavigationMenuLink asChild>
-                <a href="/modes/conseil" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground">
-                  <div className="text-sm font-medium leading-none">Conseil</div>
-                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                    Concevoir vos solutions sur mesure de l'idée au projet
-                  </p>
-                </a>
-              </NavigationMenuLink>
+            <div className="p-2 w-[320px]">
+              <NavItem
+                href="/modes/conseil"
+                title="Conseil"
+                description="Solutions sur mesure de l'idee au projet"
+              />
+              <NavItem
+                href="/modes/regie"
+                title="Regie"
+                description="Renforcez vos equipes avec nos experts en immersion"
+              />
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
+
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-background text-foreground hover:bg-accent hover:text-accent-foreground">Regie</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-transparent text-foreground/80 hover:bg-accent/50 hover:text-foreground data-[state=open]:bg-accent/50 h-9 px-3 text-sm font-medium">
+            Business Units
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="p-4 w-[300px]">
-              <NavigationMenuLink asChild>
-                <a href="/modes/regie" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground">
-                  <div className="text-sm font-medium leading-none">Regie</div>
-                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                    Renforcez vos équipes avec nos experts en immersion
-                  </p>
-                </a>
-              </NavigationMenuLink>
+            <div className="p-2 w-[340px]">
+              <NavItem
+                href="/business-units/banque-finance"
+                title="Banque Finance"
+                description="Solutions pour le secteur bancaire et financier"
+              />
+              <NavItem
+                href="/business-units/ingenierie"
+                title="Ingenierie"
+                description="Expertise technique et solutions d'ingenierie"
+              />
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
+
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Business Units</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-transparent text-foreground/80 hover:bg-accent/50 hover:text-foreground data-[state=open]:bg-accent/50 h-9 px-3 text-sm font-medium">
+            Nos Expertises
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="grid gap-3 p-4 w-[400px]">
-              <NavigationMenuLink asChild>
-                <a
-                  href="/business-units/banque-finance"
-                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                >
-                  <div className="text-sm font-medium leading-none">Banque Finance</div>
-                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                    Solutions pour le secteur bancaire et financier
-                  </p>
-                </a>
-              </NavigationMenuLink>
-              <NavigationMenuLink asChild>
-                <a
-                  href="/business-units/ingenierie"
-                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                >
-                  <div className="text-sm font-medium leading-none">Ingénierie</div>
-                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                    Expertise technique et solutions d'ingénierie
-                  </p>
-                </a>
-              </NavigationMenuLink>
-            </div>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Nos Expertises</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <div className="grid gap-3 p-6 w-[500px] lg:grid-cols-2">
-              <NavigationMenuLink asChild>
-                <a
-                  href="/expertises/software-engineering"
-                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                >
-                  <div className="text-sm font-medium leading-none">Software Engineering</div>
-                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                    Développement logiciel sur mesure
-                  </p>
-                </a>
-              </NavigationMenuLink>
-              <NavigationMenuLink asChild>
-                <a
-                  href="/expertises/cloud"
-                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                >
-                  <div className="text-sm font-medium leading-none">Cloud</div>
-                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                    Solutions cloud et infrastructure
-                  </p>
-                </a>
-              </NavigationMenuLink>
-              <NavigationMenuLink asChild>
-                <a
-                  href="/expertises/infrastructure-devops"
-                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                >
-                  <div className="text-sm font-medium leading-none">Infrastructure & DevOps</div>
-                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                    Automatisation et optimisation
-                  </p>
-                </a>
-              </NavigationMenuLink>
-              <NavigationMenuLink asChild>
-                <a
-                  href="/expertises/sap"
-                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                >
-                  <div className="text-sm font-medium leading-none">SAP</div>
-                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                    Expertise SAP et integration
-                  </p>
-                </a>
-              </NavigationMenuLink>
-              <NavigationMenuLink asChild>
-                <a
-                  href="/expertises/gestion-projet"
-                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                >
-                  <div className="text-sm font-medium leading-none">Gestion de Projet</div>
-                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                    Management et pilotage de projets
-                  </p>
-                </a>
-              </NavigationMenuLink>
+            <div className="grid gap-0.5 p-2 w-[480px] lg:grid-cols-2">
+              <NavItem
+                href="/expertises/software-engineering"
+                title="Software Engineering"
+                description="Developpement logiciel sur mesure"
+              />
+              <NavItem
+                href="/expertises/cloud"
+                title="Cloud"
+                description="Solutions cloud et infrastructure"
+              />
+              <NavItem
+                href="/expertises/infrastructure-devops"
+                title="Infrastructure & DevOps"
+                description="Automatisation et optimisation"
+              />
+              <NavItem
+                href="/expertises/sap"
+                title="SAP"
+                description="Expertise SAP et integration"
+              />
+              <NavItem
+                href="/expertises/gestion-projet"
+                title="Gestion de Projet"
+                description="Management et pilotage de projets"
+              />
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
